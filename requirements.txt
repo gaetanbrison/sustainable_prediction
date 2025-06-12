@@ -4,5 +4,4 @@ streamlit
 matplotlib
 scikit-learn
 seaborn 
-ydata-profiling
 streamlit-pandas-profiling
