@@ -21,7 +21,7 @@ st.set_page_config(
 st.sidebar.title("California - Real Estate Agency 🏡")
 
 
-page = st.sidebar.selectbox("Select Page",["Introduction 📘","Visualization 📊", "Automated Report 📑","Prediction"])
+page = st.sidebar.selectbox("Select Page",["Introduction 📘","Visualization 📊","Prediction"])
 
 
 #st.video("video.mp4")
@@ -84,16 +84,6 @@ elif page == "Visualization 📊":
         sns.heatmap(df_numeric.corr(),annot=True,fmt=".2f",cmap='coolwarm')
         ## render the plot in streamlit 
         st.pyplot(fig_corr)
-
-elif page == "Automated Report 📑":
-    st.subheader("03 Automated Report")
-    if st.button("Generate Report"):
-        with st.spinner("Generating report..."):
-            profile = ProfileReport(df,title="California Housing Report",explorative=True,minimal=True)
-            st_profile_report(profile)
-
-        export = profile.to_html()
-        st.download_button(label="📥 Download full Report",data=export,file_name="california_housing_report.html",mime='text/html')
 
 
 elif page == "Prediction":
